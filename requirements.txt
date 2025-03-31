@@ -1,0 +1,7 @@
+Django==5.1.6
+django-import-export==4.3.7
+et_xmlfile==2.0.0
+mysql-connector-python==9.2.0
+mysql-connector-python-rf==2.2.2
+SQLAlchemy==2.0.38
+sqlparse==0.5.3
