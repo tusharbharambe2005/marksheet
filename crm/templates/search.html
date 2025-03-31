@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remedial Examination 23-24</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .document-container {
+            border: 2px solid #000;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .university-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .report-title {
+            font-weight: bold;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .exam-name {
+            font-size: 14px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        span {
+            font-weight: bold;
+        }
+        .institute-info {
+            text-align: left;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .student-info {
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            text-align: center;
+        }
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+        .result-section {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            body {
+                padding: 10px;
+            }
+            .document-container {
+                border: 2px solid #000 !important;
+                padding: 20px !important;
+                max-width: 800px !important;
+                margin: 0 auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="document-container">
+        <div class="no-print">
+            <h2>Search Student Marksheet</h2>
+            <form method="GET" action="">
+                <label for="roll_number">Enter Roll Number:</label>
+                <input type="text" id="roll_number" name="roll_number" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <div class="header">
+            <div class="university-name">DR.BABASAHEB AMBEDKAR TECHNOLOGICAL UNIVERSITY, LONERE, RAIGAD(402103)</div>
+            <div class="report-title">SEMESTER GRADE REPORT</div>
+        </div>
+
+        <div class="institute-info">
+            <span>EXAMINATION :</span> REMEDIAL EXAMINATION:- 2023-24
+        </div>
+        <div class="institute-info">
+            <span> INSTITUTE NAME :</span> 5106-KHANDESH COLLEGE EDUCATION SOCIETY COLLEGE OF ENGINEERING AND MANAGEMENT, JALGAON.
+        </div>
+
+        <div class="student-info">
+            <span> PROGRAM :</span> 11912-BACHELOR OF TECHNOLOGY IN COMPUTER SCIENCE AND ENGINEERING (DATA SCIENCE)<br>
+        </div>
+        <div class="student-info">
+            <span> PRN NO :</span> {{ marksheet.Roll_Number }}<br>
+        </div>
+        <div class="student-info">
+            <span>STUDENT NAME :</span> {{ marksheet.Candidate_Name }}<br>
+        </div>
+        <div class="student-info">
+            <span>SEMESTER :</span> FIRST <span style="padding-left: 50%;"> YEAR :</span> FIRST 
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>SUBJECT CODE</th>
+                    <th>SUBJECT NAME</th>
+                    <th>GRADE</th>
+                    <th>RESULT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>BTBS101</td>
+                    <td>ENGINEERING MATHEMATICS-I</td>
+                    <td>{{ marksheet.BTBS101 }}</td>
+                    <td>{% if marksheet.BTBS101 == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>BTBS102</td>
+                    <td>ENGINEERING CHEMISTRY</td>
+                    <td>{{ marksheet.BTBS102 }}</td>
+                    <td>{% if marksheet.BTBS102 == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>BTES103</td>
+                    <td>ENGINEERING MECHANICS</td>
+                    <td>{{ marksheet.BTES103 }}</td>
+                    <td>{% if marksheet.BTES103 == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>BTES104</td>
+                    <td>COMPUTER PROGRAMMING IN C</td>
+                    <td>{{ marksheet.BTES104 }}</td>
+                    <td>{% if marksheet.BTES104 == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>BTES105L</td>
+                    <td>WORKSHOP PRACTICES</td>
+                    <td>{{ marksheet.BTES105L }}</td>
+                    <td>{% if marksheet.BTES105L == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>BTES106</td>
+                    <td>BASIC ELECTRICAL AND ELECTRONICS ENGINEERING</td>
+                    <td>{{ marksheet.BTES106 }}</td>
+                    <td>{% if marksheet.BTES106 == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>BTBS107L</td>
+                    <td>ENGINEERING CHEMISTRY LAB</td>
+                    <td>{{ marksheet.BTBS107L }}</td>
+                    <td>{% if marksheet.BTBS107L == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+                <tr>
+                    <td>BTES108L</td>
+                    <td>ENGINEERING MECHANICS LAB</td>
+                    <td>{{ marksheet.BTES108L }}</td>
+                    <td>{% if marksheet.BTES108L == "FF" %} FAIL {% else %} PASS {% endif %}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="result-table" style="width: 100%; border: 1px solid black; border-collapse: collapse; margin-top: 30px;">
+            <tr>
+                <td colspan="2" style="padding: 10px; text-align: center; font-weight: bold; border-bottom: 1px solid black;">
+                    CURRENT SEMESTER PERFORMANCE
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 50%; text-align: right; padding: 10px; font-weight: bold; padding-right: 20px;">
+                    RESULT
+                </td>
+                <td style="width: 50%; text-align: left; padding: 10px; font-weight: bold; padding-left: 20px;">
+                    PASS
+                </td>
+            </tr>
+        </table>
+
+        <div class="buttons no-print">
+            <button onclick="window.print()">Download as PDF</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Fetch the grade for BTBS102 dynamically
+        let gradeBTBS102 = "{{ marksheet.BTBS102 }}";
+
+        // Check if the grade is 'FF' and update the result accordingly
+        let resultCell = document.getElementById("result-BTBS102");
+        if (gradeBTBS102.trim() === "FF") {
+            resultCell.innerText = "FAIL";
+        }
+    });
+</script>
+</html>
